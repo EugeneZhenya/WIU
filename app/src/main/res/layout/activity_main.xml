@@ -23,7 +23,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="16dp"
             android:orientation="vertical">
 
             <TextView
@@ -35,7 +35,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_search"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_home"
@@ -46,11 +48,26 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_home"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
+
+            <TextView
+                android:id="@+id/btn_klio"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Архів «KLIO»"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/klio_logo"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_movies"
-                android:layout_marginTop="32dp"
                 android:layout_width="match_parent"
                 android:focusable="true"
                 android:text="Фільми"
@@ -58,7 +75,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_movies"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_tvshows"
@@ -69,7 +88,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_tvshows"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_cartoons"
@@ -80,7 +101,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_animation"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_animation"
@@ -91,11 +114,26 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_cartoons"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
+
+            <TextView
+                android:id="@+id/btn_broadcast"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Телебачення"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_broadcast"
+                android:layout_marginStart="16dp"
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_genres"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:focusable="true"
                 android:text="Жанри"
@@ -103,7 +141,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_genres"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_countries"
@@ -114,11 +154,13 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_countries"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
             <TextView
                 android:id="@+id/btn_settings"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:layout_width="match_parent"
                 android:focusable="true"
                 android:text="Налаштування"
@@ -126,7 +168,9 @@
                 android:drawablePadding="16dp"
                 android:drawableStart="@drawable/ic_settings"
                 android:layout_marginStart="16dp"
-                android:layout_height="45dp" />
+                android:background="@drawable/selector_menu"
+                android:textColor="@color/text_selector_white_grey"
+                android:layout_height="42dp" />
 
         </LinearLayout>
 
