@@ -53,15 +53,17 @@ class HomeFragment : Fragment() {
 
         listFragment.bindData(dataList)
 
-        updateBanner(dataList)
+        listFragment.setOnContentSelectedListener {
+            updateBanner(it)
+        }
     }
 
-    fun updateBanner(dataList: DataModel) {
-        txtTitle.text = dataList.result[0].details[0].title
-        txtDescription.text = dataList.result[0].details[0].overview
-        txtSlogan.text =dataList.result[0].details[0].tagline
+    fun updateBanner(dataList: DataModel.Result.Detail) {
+        txtTitle.text = dataList.title
+        txtDescription.text = dataList.overview
+        txtSlogan.text =dataList.tagline
 
-        val url = "https://image.tmdb.org/t/p/w780" + dataList.result[0].details[0].backdrop_path
+        val url = "https://image.tmdb.org/t/p/w780" + dataList.backdrop_path
         Glide.with(this)
             .load(url)
             .into(imgBanner)

@@ -23,19 +23,109 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="28dp"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/btn_search"
                 android:layout_width="match_parent"
                 android:focusable="true"
+                android:text="Пошук"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_search"
+                android:layout_marginStart="16dp"
                 android:layout_height="45dp" />
 
             <TextView
                 android:id="@+id/btn_home"
                 android:layout_width="match_parent"
                 android:focusable="true"
+                android:text="Початок"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_home"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_movies"
+                android:layout_marginTop="32dp"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Фільми"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_movies"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_tvshows"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Серіали"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_tvshows"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_cartoons"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Мультфільми"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_animation"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_animation"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Мультсеріали"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_cartoons"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_genres"
+                android:layout_marginTop="32dp"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Жанри"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_genres"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_countries"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Країни"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_countries"
+                android:layout_marginStart="16dp"
+                android:layout_height="45dp" />
+
+            <TextView
+                android:id="@+id/btn_settings"
+                android:layout_marginTop="32dp"
+                android:layout_width="match_parent"
+                android:focusable="true"
+                android:text="Налаштування"
+                android:gravity="center_vertical"
+                android:drawablePadding="16dp"
+                android:drawableStart="@drawable/ic_settings"
+                android:layout_marginStart="16dp"
                 android:layout_height="45dp" />
 
         </LinearLayout>
