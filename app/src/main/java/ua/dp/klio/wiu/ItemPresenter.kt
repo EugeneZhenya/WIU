@@ -34,9 +34,20 @@ class ItemPresenter : Presenter() {
     override fun onBindViewHolder(viewHolder: ViewHolder?, item: Any?) {
         val content = item as? DataModel.Result.Detail
 
+        var url = ""
+        if (content!!.isKlio) {
+            val view = viewHolder?.view
+            val params = view!!.layoutParams
+            params.width = getWidthInPercent(view!!.context, 24)
+            params.height = getHeightInPercent(view!!.context, 32)
+
+            url = "https://archive.org/download/klio_partitions" + content?.poster_path
+        } else {
+            url = "https://image.tmdb.org/t/p/w500" + content?.poster_path
+        }
+
         val imageview = viewHolder?.view?.findViewById<ImageView>(R.id.poster_image)
 
-        val url = "https://image.tmdb.org/t/p/w500" + content?.poster_path
         Glide.with(viewHolder?.view?.context!!)
             .load(url)
             .into(imageview!!)

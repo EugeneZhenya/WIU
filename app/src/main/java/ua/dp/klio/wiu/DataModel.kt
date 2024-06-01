@@ -14,6 +14,7 @@ data class DataModel(
             val first_air_date: String,
             val genre_ids: List<Int>,
             val id: Int,
+            val isKlio: Boolean,
             val name: String,
             val origin_country: List<String>,
             val original_language: String,

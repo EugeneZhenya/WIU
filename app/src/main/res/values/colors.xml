@@ -2,4 +2,5 @@
     <color name="transparent">#00000000</color>
     <color name="color_grey">#F8F8F8</color>
     <color name="color_white">#FFFFFF</color>
+    <color name="color_accent">#fd0e30</color>
 </resources>

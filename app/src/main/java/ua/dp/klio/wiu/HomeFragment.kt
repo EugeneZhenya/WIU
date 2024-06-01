@@ -1,5 +1,6 @@
 package ua.dp.klio.wiu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -56,6 +57,12 @@ class HomeFragment : Fragment() {
         listFragment.setOnContentSelectedListener {
             updateBanner(it)
         }
+
+        listFragment.setOnItemClickListener {
+            val intent  = Intent(requireContext(), DetailActivity::class.java)
+            intent.putExtra("id", it.id)
+            startActivity(intent)
+        }
     }
 
     fun updateBanner(dataList: DataModel.Result.Detail) {
@@ -63,7 +70,14 @@ class HomeFragment : Fragment() {
         txtDescription.text = dataList.overview
         txtSlogan.text =dataList.tagline
 
-        val url = "https://image.tmdb.org/t/p/w780" + dataList.backdrop_path
+        var url = ""
+
+        if (dataList.isKlio) {
+            url = "https://archive.org/download/klio_backgrounds" + dataList.backdrop_path
+        } else {
+            url = "https://image.tmdb.org/t/p/w780" + dataList.backdrop_path
+        }
+
         Glide.with(this)
             .load(url)
             .into(imgBanner)
