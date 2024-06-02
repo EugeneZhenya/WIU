@@ -17,4 +17,6 @@ object  Constants {
     /* Intent tags*/
     const val INTENT_MENU = "menu"
     const val SELECTED_ID = "id"
+
+    const val API_KEY = "72fc48ac5ec30633b40eb2092f911244"
 }
