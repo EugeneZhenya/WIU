@@ -1,28 +1,37 @@
 package ua.dp.klio.wiu
 
 import android.os.Bundle
+import android.view.KeyEvent
+import android.view.LayoutInflater
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
+import ua.dp.klio.wiu.api.ApiService
 import ua.dp.klio.wiu.api.Response
+import ua.dp.klio.wiu.api.RetrofitHelper
+import ua.dp.klio.wiu.api.TmdbRepo
 import ua.dp.klio.wiu.databinding.ActivityDetailBinding
 import ua.dp.klio.wiu.model.DetailResponse
 import ua.dp.klio.wiu.viewmodel.DetailViewModel
 import ua.dp.klio.wiu.viewmodel.DetailViewModelFactory
 
 class DetailActivity : FragmentActivity() {
-    private lateinit var binding: ActivityDetailBinding
+    lateinit var binding: ActivityDetailBinding
     lateinit var viewmodel: DetailViewModel
+    val castFragment = ListFragment()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // setContentView(R.layout.activity_detail)
-        binding = ActivityDetailBinding.inflate(layoutInflater)
-        val view = binding.root
-        setContentView(view)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_detail)
+
+        addFragment(castFragment)
 
         val movieId = intent.getIntExtra("id", 0)
-        val repository = (application as MyApplication).tmdbRepo
+        // val repository = (application as MyApplication).tmdbRepo
+
+        val service = RetrofitHelper.getInstance().create(ApiService::class.java)
+        val repository = TmdbRepo(service)
 
         viewmodel = ViewModelProvider(this, DetailViewModelFactory(repository, movieId))
             .get(DetailViewModel::class.java)
@@ -40,6 +49,40 @@ class DetailActivity : FragmentActivity() {
                 }
             }
         }
+
+        viewmodel.castDetails.observe(this) {
+            when (it) {
+                is Response.Loading -> {
+
+                }
+                is Response.Error -> {
+
+                }
+                is Response.Success -> {
+                    if (!it.data?.cast.isNullOrEmpty()) {
+                        castFragment.bindCastData(it.data?.cast!!)
+                    }
+                }
+            }
+        }
+
+        binding.addToMylist.setOnKeyListener { view, keyCode, keyEvent ->
+            when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_DOWN -> {
+                    if (keyEvent.action == KeyEvent.ACTION_DOWN) {
+                        castFragment.requestFocus()
+                    }
+                }
+            }
+
+            false
+        }
+    }
+
+    private fun addFragment(castFragment: ListFragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.add(R.id.cast_fragment, castFragment)
+        transaction.commit()
     }
 
     private fun setData(response: DetailResponse?) {

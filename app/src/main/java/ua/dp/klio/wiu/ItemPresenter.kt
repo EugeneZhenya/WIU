@@ -7,6 +7,8 @@ import android.widget.ImageView
 import androidx.core.view.updatePadding
 import androidx.leanback.widget.Presenter
 import com.bumptech.glide.Glide
+import ua.dp.klio.wiu.utils.Common.Companion.getWidthInPercent
+import ua.dp.klio.wiu.utils.Common.Companion.getHeightInPercent
 
 class ItemPresenter : Presenter() {
     override fun onCreateViewHolder(parent: ViewGroup?): ViewHolder {
@@ -19,16 +21,6 @@ class ItemPresenter : Presenter() {
         view.updatePadding(right = 5, left = 5)
 
         return ViewHolder(view)
-    }
-
-    fun getWidthInPercent(context: Context, percent: Int): Int {
-        val width = context.resources.displayMetrics.widthPixels ?: 0
-        return (width * percent) / 100
-    }
-
-    fun getHeightInPercent(context: Context, percent: Int): Int {
-        val width = context.resources.displayMetrics.heightPixels ?: 0
-        return (width * percent) / 100
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder?, item: Any?) {
