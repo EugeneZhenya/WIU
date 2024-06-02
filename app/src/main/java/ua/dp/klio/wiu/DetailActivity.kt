@@ -77,6 +77,30 @@ class DetailActivity : FragmentActivity() {
 
             false
         }
+
+        binding.moreLikeThis.setOnKeyListener { view, keyCode, keyEvent ->
+            when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_DOWN -> {
+                    if (keyEvent.action == KeyEvent.ACTION_DOWN) {
+                        castFragment.requestFocus()
+                    }
+                }
+            }
+
+            false
+        }
+
+        binding.play.setOnKeyListener { view, keyCode, keyEvent ->
+            when (keyCode) {
+                KeyEvent.KEYCODE_DPAD_DOWN -> {
+                    if (keyEvent.action == KeyEvent.ACTION_DOWN) {
+                        castFragment.requestFocus()
+                    }
+                }
+            }
+
+            false
+        }
     }
 
     private fun addFragment(castFragment: ListFragment) {
