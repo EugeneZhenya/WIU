@@ -1,5 +1,6 @@
 package ua.dp.klio.wiu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.View
@@ -18,9 +19,9 @@ import ua.dp.klio.wiu.fragment.CountriesFragment
 import ua.dp.klio.wiu.fragment.GenresFragment
 import ua.dp.klio.wiu.fragment.KlioFragment
 import ua.dp.klio.wiu.fragment.MoviesFragment
-import ua.dp.klio.wiu.fragment.SearchFragment
 import ua.dp.klio.wiu.fragment.SettingsFragment
 import ua.dp.klio.wiu.fragment.TvShowsFragment
+import ua.dp.klio.wiu.search.SearchActivity
 import ua.dp.klio.wiu.utils.Common
 import ua.dp.klio.wiu.utils.Constants
 
@@ -97,8 +98,12 @@ class MainActivity : FragmentActivity(), View.OnKeyListener {
 
                 when (view.id) {
                     R.id.btn_search -> {
-                        selectedMenu = Constants.MENU_SEARCH
-                        changeFragment(SearchFragment())
+                        if (selectedMenu != Constants.MENU_SEARCH) {
+                            selectedMenu = Constants.MENU_SEARCH
+                            // changeFragment(SearchFragment())
+                            val intent = Intent(this, SearchActivity::class.java)
+                            startActivity(intent)
+                        }
                     }
                     R.id.btn_home -> {
                         selectedMenu = Constants.MENU_HOME
