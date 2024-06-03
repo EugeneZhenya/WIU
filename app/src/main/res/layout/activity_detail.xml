@@ -62,9 +62,7 @@
             android:textColor="@color/color_white"
             android:textSize="26sp"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/guideline_top"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".42" />
+            app:layout_constraintTop_toBottomOf="@id/guideline_top" />
 
         <TextView
             android:id="@+id/original_title"
@@ -75,20 +73,20 @@
             android:textColor="@color/color_white"
             android:textSize="13sp"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
-            app:layout_constraintTop_toBottomOf="@id/title"
-            app:layout_constraintWidth_default="percent"
-            app:layout_constraintWidth_percent=".42" />
+            app:layout_constraintTop_toBottomOf="@id/title" />
 
         <TextView
             android:id="@+id/slogan"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:textSize="18sp"
             android:textColor="@color/color_accent"
             android:textStyle="bold|italic"
             android:layout_marginTop="16dp"
             app:layout_constraintStart_toEndOf="@id/guideline_start"
             app:layout_constraintTop_toBottomOf="@id/original_title"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent=".62" />
 
         <TextView
             android:id="@+id/subtitle"
@@ -117,6 +115,21 @@
             app:layout_constraintTop_toBottomOf="@id/subtitle"
             app:layout_constraintWidth_default="percent"
             app:layout_constraintWidth_percent=".42" />
+
+        <TextView
+            android:id="@+id/show_more"
+            app:layout_constraintStart_toEndOf="@+id/description"
+            app:layout_constraintBottom_toBottomOf="@+id/description"
+            android:nextFocusDown="@id/play"
+            android:textColor="@color/color_white"
+            android:focusable="true"
+            android:clickable="true"
+            android:text="Більше"
+            android:textSize="13sp"
+            android:padding="1dp"
+            android:background="@drawable/btn_selector"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
 
         <LinearLayout
             android:id="@+id/line_button"

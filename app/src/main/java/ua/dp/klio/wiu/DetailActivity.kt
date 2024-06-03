@@ -1,8 +1,9 @@
 package ua.dp.klio.wiu
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
-import android.view.LayoutInflater
+import android.view.View
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
@@ -13,6 +14,9 @@ import ua.dp.klio.wiu.api.RetrofitHelper
 import ua.dp.klio.wiu.api.TmdbRepo
 import ua.dp.klio.wiu.databinding.ActivityDetailBinding
 import ua.dp.klio.wiu.model.DetailResponse
+import ua.dp.klio.wiu.player.PlaybackActivity
+import ua.dp.klio.wiu.utils.Common
+import ua.dp.klio.wiu.utils.Common.Companion.isEllipsized
 import ua.dp.klio.wiu.viewmodel.DetailViewModel
 import ua.dp.klio.wiu.viewmodel.DetailViewModelFactory
 
@@ -101,6 +105,12 @@ class DetailActivity : FragmentActivity() {
 
             false
         }
+        
+        binding.play.setOnKeyListener { v, keyCode, event ->
+            val intent = Intent(this, PlaybackActivity::class.java)
+            startActivity(intent)
+            false
+        }
     }
 
     private fun addFragment(castFragment: ListFragment) {
@@ -120,6 +130,21 @@ class DetailActivity : FragmentActivity() {
         Glide.with(this)
             .load(path)
             .into(binding.imgBanner)
+
+        binding.description.isEllipsized { isEllipsized ->
+            binding.showMore.visibility = if (isEllipsized) View.VISIBLE else View.GONE
+
+            binding.showMore.setOnClickListener {
+
+                Common.descriptionDialog(
+                    this,
+                    response?.title,
+                    getSubtitle(response),
+                    response?.overview.toString()
+                )
+
+            }
+        }
     }
 
     fun getSubtitle(response: DetailResponse?): String {
